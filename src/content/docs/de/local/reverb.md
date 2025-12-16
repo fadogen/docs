@@ -22,7 +22,7 @@ Bei Bedarf änderbar.
 
 ### Umgebungsvariablen
 
-```env
+```bash
 BROADCAST_DRIVER=reverb
 REVERB_APP_ID=1001
 REVERB_APP_KEY=laravel-fadogen

@@ -5,6 +5,10 @@ import starlight from '@astrojs/starlight';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
+  site: 'https://docs.fadogen.app',
+  adapter: cloudflare({
+    imageService: 'compile',
+  }),
   integrations: [
     starlight({
       title: 'Fadogen',
@@ -108,6 +112,4 @@ export default defineConfig({
       ],
     }),
   ],
-
-  adapter: cloudflare(),
 });
