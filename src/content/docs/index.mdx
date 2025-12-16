@@ -1,40 +1,150 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Fadogen
+description: Free and open-source PHP development and deployment environment for macOS.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: One app. From local to production.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get Started
+      link: /getting-started/introduction/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: View on GitHub
+      link: https://github.com/fadogen/app
       icon: external
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-## Next steps
+## What is Fadogen?
+
+**Fadogen** is a free and open-source, native macOS application that lets you **create, develop, deploy, and operate** PHP applications from a single place.
+
+It replaces a fragmented toolchain with one coherent workflow:
+
+- no Homebrew
+- no custom Docker setup
+- no paid deployment platforms
+- no credentials stored on third-party servers
+
+Just install Fadogen, describe your project, and ship.
+
+---
+
+## A complete workflow, end to end
+
+Fadogen covers the **entire lifecycle** of your application:
+
+1. Generate a Laravel or Symfony project
+2. Develop locally with HTTPS and isolated runtimes
+3. Generate production-ready infrastructure and CI/CD
+4. Provision servers and deploy with zero downtime
+5. Backup and restore data automatically
+
+All from the same app.
+
+---
+
+## Core foundations
+
+<CardGrid>
+  <Card title="Multi-version PHP" icon="seti:php">
+    Install and run multiple PHP versions side by side. Assign versions per project.
+  </Card>
+
+{" "}
+<Card title="Node.js & Bun" icon="seti:javascript">
+  Native Node.js and Bun runtimes with per-project version management.
+</Card>
+
+{" "}
+<Card title="Databases & Caches" icon="seti:db">
+  MariaDB, MySQL, PostgreSQL, Redis and Valkey bundled and ready to use.
+</Card>
+
+{" "}
+<Card title="Automatic HTTPS" icon="approve-check-circle">
+  Local TLS certificates automatically generated and trusted by macOS.
+</Card>
+
+{" "}
+<Card title="Email & Realtime" icon="mail">
+  Mailpit for email testing and native Laravel Reverb support.
+</Card>
+
+  <Card title="100% Self-contained" icon="laptop">
+    Everything runs locally. No Homebrew, no external services, no hidden dependencies.
+  </Card>
+</CardGrid>
+
+---
+
+## What makes Fadogen different
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Project Generator" icon="add-document">
+    Generate Laravel or Symfony projects with a complete, production-ready stack.
+  </Card>
+
+{" "}
+<Card title="DevOps Generator" icon="setting">
+  Automatically generate Dockerfile, compose.yaml and GitHub Actions workflows.
+</Card>
+
+{" "}
+<Card title="Built-in Deployment" icon="rocket">
+  Provision VPS servers and deploy applications with zero downtime.
+</Card>
+
+{" "}
+<Card title="Cloudflare Tunnel" icon="open-book">
+  Deploy securely on your own servers without exposing any ports.
+</Card>
+
+{" "}
+<Card title="Automated Backups & Restore" icon="approve-check-circle">
+  Scheduled database backups to S3-compatible storage or Dropbox, with automatic
+  restore during deployments.
+</Card>
+
+  <Card title="Privacy by design" icon="heart">
+    No accounts, no telemetry, no third-party credential storage. Everything stays on your machine, encrypted and synced via iCloud.
+  </Card>
 </CardGrid>
+
+---
+
+## Who is Fadogen for?
+
+Fadogen is designed for:
+
+- **Solo developers** who want to ship faster
+- **Freelancers** managing multiple client projects
+- **Small teams** without dedicated DevOps engineers
+
+If you are tired of stitching together local environments, deployment tools and paid services, Fadogen gives you a simpler path.
+
+---
+
+## Open source, no lock-in
+
+Fadogen is fully **open source**.
+
+All generated files are standard and portable:
+
+- Docker
+- Docker Compose
+- GitHub Actions
+- Infrastructure configs
+
+You can deploy anywhere, modify everything, or leave at any time.
+
+No subscriptions. No hidden features.
+
+---
+
+## Get started
+
+Install Fadogen, create your first project, and deploy when ready.
+
+Everything else is already included.

@@ -1,0 +1,32 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<figure class="not-content">
+  <video autoplay loop muted playsinline>
+    <source src={src} type="video/mp4" />
+  </video>
+  {alt && <figcaption>{alt}</figcaption>}
+</figure>
+
+<style>
+  figure {
+    margin: 1.5rem 0;
+  }
+  video {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-3);
+    margin-top: 0.5rem;
+  }
+</style>
