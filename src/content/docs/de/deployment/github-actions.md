@@ -28,6 +28,7 @@ Für Zero-Downtime-Deployments verwenden Sie progressive Migrationen: Deployen S
 Fadogen erstellt eine vollständige Workflow-Datei in Ihrem Repository unter `.github/workflows/deploy.yml`.
 
 Der Workflow handhabt:
+
 - Erstellen Ihrer Anwendung
 - Verbindung zum Server über Tunnel (falls zutreffend)
 - Backup-Wiederherstellung (falls zutreffend)
@@ -39,20 +40,25 @@ Fadogen erstellt und verwaltet automatisch diese Secrets in Ihrem GitHub-Reposit
 
 ### GitHub Actions Secrets
 
-| Secret | Beschreibung |
-|--------|--------------|
-| `SSH_HOST` | Server-Hostname oder Cloudflare-Tunnel-Hostname |
-| `SSH_PORT` | SSH-Port (Standard: 22) |
-| `SSH_USER` | SSH-Benutzername |
-| `SSH_PRIVATE_KEY` | Vollständiger privater SSH-Schlüssel |
-| `ENV_FILE_BASE64` | Vollständige `.env.production`-Datei in Base64 kodiert |
-| `USE_CLOUDFLARE_TUNNEL` | `"true"` oder `"false"` |
+| Secret                  | Beschreibung                                           |
+| ----------------------- | ------------------------------------------------------ |
+| `SSH_HOST`              | Server-Hostname oder Cloudflare-Tunnel-Hostname        |
+| `SSH_PORT`              | SSH-Port (Standard: 22)                                |
+| `SSH_USER`              | SSH-Benutzername                                       |
+| `SSH_PRIVATE_KEY`       | Vollständiger privater SSH-Schlüssel                   |
+| `ENV_FILE_BASE64`       | Vollständige `.env.production`-Datei in Base64 kodiert |
+| `USE_CLOUDFLARE_TUNNEL` | `"true"` oder `"false"`                                |
 
 ### GitHub Actions Variablen
 
-| Variable | Beschreibung |
-|----------|--------------|
-| `SYSTEM_ARCH` | Server-Architektur (`x86_64`, `aarch64`) |
+| Variable      | Beschreibung                                                           |
+| ------------- | ---------------------------------------------------------------------- |
+| `SYSTEM_ARCH` | Server-Architektur (`x86_64`, `aarch64`)                               |
+| `STACK_ID`    | Eindeutiger Stack-Identifier für Docker Swarm (z.B. `my-app-a1b2c3d4`) |
+
+:::note[Warum STACK_ID?]
+Die Variable `STACK_ID` stellt sicher, dass Ihr Deployment Umbenennungen des GitHub-Repositories überlebt. Sie wird einmalig bei der ersten Deployment-Konfiguration generiert (Format: `{repo-name}-{hash}`) und ändert sich nie. Docker-Volumes verwenden diese ID als Präfix, sodass das Umbenennen Ihres Repositories Ihre Daten nicht verwaist.
+:::
 
 ## Ein Deployment auslösen
 

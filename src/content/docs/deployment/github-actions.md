@@ -28,6 +28,7 @@ For zero-downtime deployments, use progressive migrations: first deploy with nul
 Fadogen creates a complete workflow file in your repository at `.github/workflows/deploy.yml`.
 
 The workflow handles:
+
 - Building your application
 - Connecting to the server via tunnel (if applicable)
 - Backup restoration (if applicable)
@@ -39,20 +40,25 @@ Fadogen automatically creates and manages these secrets in your GitHub repositor
 
 ### GitHub Actions Secrets
 
-| Secret | Description |
-|--------|-------------|
-| `SSH_HOST` | Server hostname or Cloudflare Tunnel hostname |
-| `SSH_PORT` | SSH port (default: 22) |
-| `SSH_USER` | SSH username |
-| `SSH_PRIVATE_KEY` | Full SSH private key |
-| `ENV_FILE_BASE64` | Complete `.env.production` file encoded in base64 |
-| `USE_CLOUDFLARE_TUNNEL` | `"true"` or `"false"` |
+| Secret                  | Description                                       |
+| ----------------------- | ------------------------------------------------- |
+| `SSH_HOST`              | Server hostname or Cloudflare Tunnel hostname     |
+| `SSH_PORT`              | SSH port (default: 22)                            |
+| `SSH_USER`              | SSH username                                      |
+| `SSH_PRIVATE_KEY`       | Full SSH private key                              |
+| `ENV_FILE_BASE64`       | Complete `.env.production` file encoded in base64 |
+| `USE_CLOUDFLARE_TUNNEL` | `"true"` or `"false"`                             |
 
 ### GitHub Actions Variables
 
-| Variable | Description |
-|----------|-------------|
-| `SYSTEM_ARCH` | Server architecture (`x86_64`, `aarch64`) |
+| Variable      | Description                                                        |
+| ------------- | ------------------------------------------------------------------ |
+| `SYSTEM_ARCH` | Server architecture (`x86_64`, `aarch64`)                          |
+| `STACK_ID`    | Unique stack identifier for Docker Swarm (e.g., `my-app-a1b2c3d4`) |
+
+:::note[Why STACK_ID?]
+The `STACK_ID` variable ensures your deployment survives GitHub repository renames. It's generated once when you first configure deployment (format: `{repo-name}-{hash}`) and never changes. Docker volumes use this ID as prefix, so renaming your repository won't orphan your data.
+:::
 
 ## Trigger a Deployment
 

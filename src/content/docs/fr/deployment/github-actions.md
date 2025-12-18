@@ -28,6 +28,7 @@ Pour des déploiements sans interruption, utilisez des migrations progressives :
 Fadogen crée un fichier workflow complet dans votre dépôt à `.github/workflows/deploy.yml`.
 
 Le workflow gère :
+
 - La construction de votre application
 - La connexion au serveur via tunnel (si applicable)
 - La restauration des backups (si applicable)
@@ -39,20 +40,25 @@ Fadogen crée et gère automatiquement ces secrets dans votre dépôt GitHub.
 
 ### Secrets GitHub Actions
 
-| Secret | Description |
-|--------|-------------|
-| `SSH_HOST` | Hostname du serveur ou hostname du tunnel Cloudflare |
-| `SSH_PORT` | Port SSH (par défaut : 22) |
-| `SSH_USER` | Nom d'utilisateur SSH |
-| `SSH_PRIVATE_KEY` | Clé privée SSH complète |
-| `ENV_FILE_BASE64` | Fichier `.env.production` complet encodé en base64 |
-| `USE_CLOUDFLARE_TUNNEL` | `"true"` ou `"false"` |
+| Secret                  | Description                                          |
+| ----------------------- | ---------------------------------------------------- |
+| `SSH_HOST`              | Hostname du serveur ou hostname du tunnel Cloudflare |
+| `SSH_PORT`              | Port SSH (par défaut : 22)                           |
+| `SSH_USER`              | Nom d'utilisateur SSH                                |
+| `SSH_PRIVATE_KEY`       | Clé privée SSH complète                              |
+| `ENV_FILE_BASE64`       | Fichier `.env.production` complet encodé en base64   |
+| `USE_CLOUDFLARE_TUNNEL` | `"true"` ou `"false"`                                |
 
 ### Variables GitHub Actions
 
-| Variable | Description |
-|----------|-------------|
-| `SYSTEM_ARCH` | Architecture du serveur (`x86_64`, `aarch64`) |
+| Variable      | Description                                                           |
+| ------------- | --------------------------------------------------------------------- |
+| `SYSTEM_ARCH` | Architecture du serveur (`x86_64`, `aarch64`)                         |
+| `STACK_ID`    | Identifiant unique de stack pour Docker Swarm (ex: `my-app-a1b2c3d4`) |
+
+:::note[Pourquoi STACK_ID ?]
+La variable `STACK_ID` garantit que votre déploiement survit aux renommages de dépôt GitHub. Elle est générée une seule fois lors de la première configuration du déploiement (format : `{nom-repo}-{hash}`) et ne change jamais. Les volumes Docker utilisent cet ID comme préfixe, donc renommer votre dépôt n'orphelinera pas vos données.
+:::
 
 ## Déclencher un déploiement
 
