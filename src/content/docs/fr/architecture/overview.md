@@ -26,7 +26,7 @@ L'application télécharge et met à jour les binaires nécessaires de manière 
 ## Confidentialité
 
 - **Aucune communication serveur** : tout fonctionne localement
-- **Données sécurisées** : stockées dans iCloud et chiffrées
+- **Données sécurisées** : stockées dans iCloud et chiffrées — voir [Synchronisation iCloud](/fr/architecture/icloud-sync/)
 - **Open source** : le code est auditable
 
 ## Distribution

@@ -96,6 +96,7 @@ export default defineConfig({
           translations: { fr: 'Architecture', de: 'Architektur' },
           items: [
             { slug: 'architecture/overview' },
+            { slug: 'architecture/icloud-sync' },
             { slug: 'architecture/provisioning' },
           ],
         },

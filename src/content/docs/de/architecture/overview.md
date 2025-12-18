@@ -26,7 +26,7 @@ Die Anwendung lädt die erforderlichen Binärdateien transparent herunter und ak
 ## Datenschutz
 
 - **Keine Server-Kommunikation**: alles läuft lokal
-- **Sichere Daten**: in iCloud gespeichert und verschlüsselt
+- **Sichere Daten**: in iCloud gespeichert und verschlüsselt — siehe [iCloud-Synchronisierung](/de/architecture/icloud-sync/)
 - **Open Source**: der Code ist überprüfbar
 
 ## Verteilung

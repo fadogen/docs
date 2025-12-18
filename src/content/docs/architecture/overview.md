@@ -26,7 +26,7 @@ The application downloads and updates the necessary binaries transparently.
 ## Privacy
 
 - **No server communication**: everything runs locally
-- **Secure data**: stored in iCloud and encrypted
+- **Secure data**: stored in iCloud and encrypted — see [iCloud Sync](/architecture/icloud-sync/)
 - **Open source**: the code is auditable
 
 ## Distribution
