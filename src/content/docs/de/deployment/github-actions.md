@@ -33,11 +33,26 @@ Der Workflow handhabt:
 - Backup-Wiederherstellung (falls zutreffend)
 - Deployment zu Docker Swarm mit Rolling Updates (Zero Downtime)
 
-## Erforderliche Secrets
+## Secrets
 
-Fadogen erstellt automatisch diese Secrets in Ihrem GitHub-Repository:
-- Server-Verbindungsdaten (SSH)
-- Anwendungs-Umgebungsvariablen
+Fadogen erstellt und verwaltet automatisch diese Secrets in Ihrem GitHub-Repository.
+
+### GitHub Actions Secrets
+
+| Secret | Beschreibung |
+|--------|--------------|
+| `SSH_HOST` | Server-Hostname oder Cloudflare-Tunnel-Hostname |
+| `SSH_PORT` | SSH-Port (Standard: 22) |
+| `SSH_USER` | SSH-Benutzername |
+| `SSH_PRIVATE_KEY` | Vollständiger privater SSH-Schlüssel |
+| `ENV_FILE_BASE64` | Vollständige `.env.production`-Datei in Base64 kodiert |
+| `USE_CLOUDFLARE_TUNNEL` | `"true"` oder `"false"` |
+
+### GitHub Actions Variablen
+
+| Variable | Beschreibung |
+|----------|--------------|
+| `SYSTEM_ARCH` | Server-Architektur (`x86_64`, `aarch64`) |
 
 ## Ein Deployment auslösen
 
