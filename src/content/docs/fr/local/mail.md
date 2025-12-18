@@ -1,5 +1,5 @@
 ---
-title: Mailpit
+title: Mail
 description: Test des emails avec Fadogen.
 ---
 

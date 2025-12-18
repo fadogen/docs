@@ -57,7 +57,7 @@ export default defineConfig({
             { slug: 'local/databases' },
             { slug: 'local/caches' },
             { slug: 'local/reverb' },
-            { slug: 'local/mailpit' },
+            { slug: 'local/mail' },
             { slug: 'local/caddy' },
           ],
         },
