@@ -1,0 +1,124 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface ImageEntry {
+  src: ImageMetadata;
+  alt: string;
+  href?: string;
+  description?: string;
+}
+
+interface Props {
+  images: ImageEntry[];
+  stagger?: boolean;
+}
+
+const { images, stagger = false } = Astro.props;
+---
+
+<div class:list={["image-grid", "not-content", { stagger }]}>
+  {
+    images.map((image) => {
+      const Element = image.href ? "a" : "div";
+      return (
+        <Element href={image.href} class="image-card">
+          <div class="image-asset">
+            <Image src={image.src} alt={image.alt} />
+          </div>
+          <div class="image-infos">
+            <p class="image-title">{image.alt}</p>
+            {image.description && (
+              <p class="image-description">{image.description}</p>
+            )}
+          </div>
+        </Element>
+      );
+    })
+  }
+</div>
+
+<style>
+  .image-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 50rem) {
+    .image-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Stagger effect - inspired by Starlight CardGrid */
+    .image-grid.stagger {
+      --stagger-height: 3rem;
+      padding-bottom: var(--stagger-height);
+    }
+
+    .image-grid.stagger > :global(*):nth-child(2n) {
+      transform: translateY(var(--stagger-height));
+    }
+  }
+
+  .image-card {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    box-shadow: var(--sl-shadow-sm);
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    background: var(--sl-color-bg-nav);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  a.image-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sl-shadow-md);
+    border-color: var(--sl-color-gray-3);
+  }
+
+  a.image-card:active {
+    transform: translateY(-2px);
+  }
+
+  .image-asset {
+    overflow: hidden;
+  }
+
+  .image-asset img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  a.image-card:hover .image-asset img {
+    transform: scale(1.02);
+  }
+
+  .image-infos {
+    border-top: 1px solid var(--sl-color-gray-5);
+    padding: 1rem 1.25rem;
+  }
+
+  .image-title {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+    line-height: var(--sl-line-height-headings);
+    margin: 0;
+  }
+
+  .image-description {
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    line-height: 1.5;
+    margin: 0.5rem 0 0;
+  }
+</style>

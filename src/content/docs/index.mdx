@@ -15,6 +15,11 @@ hero:
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
+import ImageGrid from "../../components/ImageGrid.astro";
+import fadogenProjects from "../../assets/fadogen-list-projects.png";
+import fadogenNewProject from "../../assets/fadogen-new-project.png";
+import fadogenServers from "../../assets/fadogen-list-servers.png";
+import fadogenIntegrations from "../../assets/fadogen-integrations.png";
 
 ## What is Fadogen?
 
@@ -42,6 +47,40 @@ Fadogen covers the **entire lifecycle** of your application:
 5. Backup and restore data automatically
 
 All from the same app.
+
+---
+
+## See it in action
+
+<ImageGrid
+  stagger
+  images={[
+    {
+      src: fadogenProjects,
+      alt: "Projects",
+      description: "Manage local and deployed projects",
+      href: "/projects/",
+    },
+    {
+      src: fadogenNewProject,
+      alt: "New Project",
+      description: "Create Laravel or Symfony projects",
+      href: "/getting-started/first-project/",
+    },
+    {
+      src: fadogenServers,
+      alt: "Servers",
+      description: "Provision and manage VPS servers",
+      href: "/deployment/servers/",
+    },
+    {
+      src: fadogenIntegrations,
+      alt: "Integrations",
+      description: "Connect cloud services and tools",
+      href: "/integrations/",
+    },
+  ]}
+/>
 
 ---
 
