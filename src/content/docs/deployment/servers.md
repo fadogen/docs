@@ -42,6 +42,10 @@ For servers created manually in a provider's dashboard or self-hosted servers (h
 The server should be a fresh installation with no prior configuration.
 :::
 
+:::tip
+Use an IP address or a standard DNS hostname rather than an mDNS hostname (e.g., `myserver.local`). mDNS would require opening UDP port 5353, which adds complexity to the firewall configuration.
+:::
+
 ## Provisioning
 
 An Ansible playbook embedded in the app configures the server automatically.

@@ -42,6 +42,10 @@ Für Server, die manuell im Dashboard eines Anbieters erstellt wurden, oder selb
 Der Server sollte eine frische Installation ohne vorherige Konfiguration sein.
 :::
 
+:::tip
+Verwenden Sie eine IP-Adresse oder einen Standard-DNS-Hostnamen anstelle eines mDNS-Hostnamens (z.B. `meinserver.local`). mDNS würde das Öffnen des UDP-Ports 5353 erfordern, was die Firewall-Konfiguration verkompliziert.
+:::
+
 ## Provisionierung
 
 Ein in der App eingebettetes Ansible-Playbook konfiguriert den Server automatisch.

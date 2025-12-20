@@ -42,6 +42,10 @@ Pour les serveurs créés manuellement dans le dashboard d'un fournisseur ou les
 Le serveur doit être une installation fraîche sans configuration préalable.
 :::
 
+:::tip
+Utilisez une adresse IP ou un nom d'hôte DNS standard plutôt qu'un nom d'hôte mDNS (ex : `monserveur.local`). mDNS nécessiterait d'ouvrir le port UDP 5353, ce qui complexifie la configuration du pare-feu.
+:::
+
 ## Provisionnement
 
 Un playbook Ansible intégré à l'app configure automatiquement le serveur.
