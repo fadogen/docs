@@ -96,7 +96,7 @@ Toutes les données sensibles restent sur votre machine, chiffrées et synchroni
 
 ## Prérequis
 
-- macOS 26.0 ou ultérieur
+- macOS 15.0 (Sequoia) ou ultérieur
 - Apple Silicon
 
 ---

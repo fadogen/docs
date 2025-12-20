@@ -96,7 +96,7 @@ Alle sensiblen Daten bleiben auf Ihrem Gerät, verschlüsselt und über iCloud s
 
 ## Anforderungen
 
-- macOS 26.0 oder neuer
+- macOS 15.0 (Sequoia) oder neuer
 - Apple Silicon
 
 ---

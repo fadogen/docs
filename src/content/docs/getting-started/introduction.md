@@ -96,7 +96,7 @@ All sensitive data stays on your machine, encrypted and synced via iCloud.
 
 ## Requirements
 
-- macOS 26.0 or later
+- macOS 15.0 (Sequoia) or later
 - Apple Silicon
 
 ---
