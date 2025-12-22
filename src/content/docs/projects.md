@@ -37,6 +37,50 @@ Each project can have its own configuration:
 
 These settings are stored in the `.fadogen` file at the project root.
 
+## Sharing Your Work
+
+Share your local development site with others to get feedback, test on different devices, or demo your work — all without deploying to a server.
+
+Access tunnel options from the **Development** tab in the project detail view.
+
+### Quick Tunnel
+
+Create an instant tunnel with a random `*.trycloudflare.com` URL. No configuration required.
+
+:::note
+Quick tunnels are temporary and will stop automatically after some time without warning. Use them for short sharing sessions only.
+:::
+
+### Custom Domain Tunnel
+
+Use your own domain for the tunnel. This requires:
+- A configured [Cloudflare integration](/integrations/config/cloudflare/)
+- An active domain on Cloudflare
+
+### Password Protection
+
+Both tunnel types support password protection:
+- **Username**: `user`
+- **Password**: randomly generated
+
+The credentials are displayed when the tunnel starts.
+
+### Frontend Projects
+
+For frontend projects (SPA), you must build your project before creating a tunnel. Fadogen serves the built files from the following directories:
+
+| Framework | Build Directory |
+|-----------|-----------------|
+| Laravel, Symfony | — (served directly) |
+| Next.js | `out` |
+| Nuxt | `.output/public` |
+| SvelteKit | `build` |
+| React, Vue, Svelte | `dist` |
+
+:::caution[Security]
+Stop the tunnel as soon as you no longer need to share your site. While active, your local development environment is exposed to the internet.
+:::
+
 ## Production Deployment
 
 ### Prerequisites

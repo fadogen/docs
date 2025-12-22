@@ -37,6 +37,50 @@ Jedes Projekt kann seine eigene Konfiguration haben:
 
 Diese Einstellungen werden in der `.fadogen`-Datei im Projektstammverzeichnis gespeichert.
 
+## Ihre Arbeit teilen
+
+Teilen Sie Ihre lokale Entwicklungsseite mit anderen, um Feedback zu erhalten, auf verschiedenen Geräten zu testen oder Ihre Arbeit zu demonstrieren — alles ohne auf einen Server zu deployen.
+
+Greifen Sie auf die Tunnel-Optionen im **Entwicklung**-Tab in der Projektdetailansicht zu.
+
+### Schneller Tunnel
+
+Erstellen Sie einen sofortigen Tunnel mit einer zufälligen `*.trycloudflare.com`-URL. Keine Konfiguration erforderlich.
+
+:::note
+Schnelle Tunnel sind temporär und werden nach einiger Zeit automatisch ohne Vorwarnung beendet. Verwenden Sie sie nur für kurze Sharing-Sessions.
+:::
+
+### Benutzerdefinierte Domain
+
+Verwenden Sie Ihre eigene Domain für den Tunnel. Dies erfordert:
+- Eine konfigurierte [Cloudflare-Integration](/de/integrations/config/cloudflare/)
+- Eine aktive Domain bei Cloudflare
+
+### Passwortschutz
+
+Beide Tunnel-Typen unterstützen Passwortschutz:
+- **Benutzername**: `user`
+- **Passwort**: zufällig generiert
+
+Die Anmeldedaten werden beim Start des Tunnels angezeigt.
+
+### Frontend-Projekte
+
+Bei Frontend-Projekten (SPA) müssen Sie Ihr Projekt builden, bevor Sie einen Tunnel erstellen. Fadogen stellt die gebauten Dateien aus den folgenden Verzeichnissen bereit:
+
+| Framework | Build-Verzeichnis |
+|-----------|-------------------|
+| Laravel, Symfony | — (direkt bereitgestellt) |
+| Next.js | `out` |
+| Nuxt | `.output/public` |
+| SvelteKit | `build` |
+| React, Vue, Svelte | `dist` |
+
+:::caution[Sicherheit]
+Beenden Sie den Tunnel, sobald Sie Ihre Seite nicht mehr teilen müssen. Solange er aktiv ist, ist Ihre lokale Entwicklungsumgebung im Internet erreichbar.
+:::
+
 ## Produktionsbereitstellung
 
 ### Voraussetzungen
