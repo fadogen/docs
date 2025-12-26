@@ -5,7 +5,7 @@ description: How to download and install Fadogen on macOS.
 
 ## Download and install
 
-Download the latest version from [GitHub Releases](https://github.com/fadogen/app/releases), open the `.dmg` and drag Fadogen to Applications.
+[Download Fadogen](https://github.com/fadogen/app/releases/latest/download/Fadogen.dmg), open the `.dmg` and drag Fadogen to Applications.
 
 ## First Setup
 
