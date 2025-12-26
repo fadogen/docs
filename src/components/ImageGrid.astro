@@ -61,9 +61,19 @@ const { images, stagger = false } = Astro.props;
     .image-grid.stagger > :global(*):nth-child(2n) {
       transform: translateY(var(--stagger-height));
     }
+
+    .image-grid.stagger > a.image-card:nth-child(2n):hover {
+      transform: translateY(calc(var(--stagger-height) + var(--lift-hover)));
+    }
+
+    .image-grid.stagger > a.image-card:nth-child(2n):active {
+      transform: translateY(calc(var(--stagger-height) + var(--lift-active)));
+    }
   }
 
   .image-card {
+    --lift-hover: -4px;
+    --lift-active: -2px;
     border: 1px solid var(--sl-color-gray-5);
     border-radius: 0.75rem;
     box-shadow: var(--sl-shadow-sm);
@@ -78,13 +88,13 @@ const { images, stagger = false } = Astro.props;
   }
 
   a.image-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(var(--lift-hover));
     box-shadow: var(--sl-shadow-md);
     border-color: var(--sl-color-gray-3);
   }
 
   a.image-card:active {
-    transform: translateY(-2px);
+    transform: translateY(var(--lift-active));
   }
 
   .image-asset {
